@@ -1,0 +1,13 @@
+{
+    "name" : "daoanhdoan/field_group_bootstrap_grid",
+    "description": "Field Group Bootstrap Grid - Render fields in a bootstrap grid.",
+    "type" : "drupal-custom-module",
+    "license": "GPL-2.0+",
+    "extra": {
+        "installer-name": "field_group_bootstrap_grid"
+    },
+    "require": {
+        "drupal/field_group": "*",
+        "drupal/field": "*"
+    }
+}

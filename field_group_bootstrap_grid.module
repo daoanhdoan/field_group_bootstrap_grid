@@ -1,0 +1,40 @@
+<?php
+
+use Drupal\field_group_bootstrap_grid\Plugin\field_group\FieldGroupFormatter\BootstrapGrid;
+
+function field_group_bootstrap_grid_theme() {
+  $theme['field_group_bootstrap_grid'] = [
+    'render element' => 'element',
+    'template' => 'field-group-bootstrap-grid',
+    'preprocess functions' => [
+      'template_preprocess_field_group_bootstrap_grid',
+    ]
+  ];
+  return $theme;
+}
+
+
+/**
+ * Prepares variables for views grid templates.
+ *
+ * Default template: views-bootstrap-grid.html.twig.
+ *
+ * @param array $vars
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_field_group_bootstrap_grid(array &$variables) {
+  $vars['attributes']['class'][] = 'grid';
+  $element = $variables['element'];
+
+  if (!empty($element['#title']) && !empty($element['#title_element'])) {
+    $variables['title_element'] = $element['#title_element'];
+    $variables['title'] = $element['#title'];
+    $variables['title_attributes'] = $element['#title_attributes'];
+  }
+
+  $variables['attributes'] = $element['#attributes'];
+  $variables['id'] = $element['#id'];
+  $variables['children'] = (!empty($element['#children'])) ? $element['#children'] : '';
+}

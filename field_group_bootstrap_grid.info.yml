@@ -1,0 +1,10 @@
+name: 'Field Group Bootstrap Grid'
+type: module
+description: 'Render fields in a bootstrap grid.'
+package: Fields
+core: '8.x'
+core_version_requirement: ^8 || ^9
+
+dependencies:
+  - drupal:field_group
+  - drupal:bootstrap_library
