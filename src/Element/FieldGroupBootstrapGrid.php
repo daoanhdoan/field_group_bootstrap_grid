@@ -63,7 +63,13 @@ class FieldGroupBootstrapGrid extends RenderElement {
     }
 
     foreach ($element['#groups'][$group_name] as &$item) {
-      $item['#attributes']['class'] = array_merge($item['#attributes']['class'], $classes);
+      if (!empty($item['#attributes']['class'])) {
+        $item['#attributes']['class'] = array_merge($item['#attributes']['class'], $classes);
+      }
+      else {
+        $item['#attributes']['class'] = $classes;
+      }
+
     }
 
     $element['#attached']['library'][] = 'field_group/core';
